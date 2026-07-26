@@ -1,31 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-    <link rel="stylesheet" href="style/styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Day Surprise</title>
-    <link rel="icon" type="image/x-icon" href="assets/heart.png">
+    <title>Happy Birthday My Lady ✨🤎</title>
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <div class="message-container">
-        <div class="message" data-index="1">Every moment with you...</div>
-        <div class="message" data-index="2">Feels like a fairy tale ✨</div>
-        <div class="message" data-index="3">You're my forever spark 🌟</div>
-        <div class="message" data-index="4">This Valentine's...</div>
-        <div class="message" data-index="5">Will you be mine?</div>
-        <div class="message" data-index="6">Please 🥺?</div>
-        
-        <div class="final-question">
-            <h2>Be My Valentine?</h2>
-            <div class="btn-group">
-                <button class="valentine-btn yes-btn">Yes, Always! 🌹</button>
-                <button class="valentine-btn no-btn">Still Thinking 💭</button>
-            </div>
+    <audio id="bg-music" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="password-screen" style="text-align: center; padding: 50px 20px;">
+        <h2>أدخلي كلمة السر يا بيبو ✨🤎</h2>
+        <input type="password" id="passInput" placeholder="Enter password..." style="padding: 10px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; text-align: center;">
+        <br><br>
+        <button onclick="checkPassword()" style="padding: 10px 20px; font-size: 16px; background-color: #8b5a2b; color: white; border: none; border-radius: 8px; cursor: pointer;">دخول ❤️</button>
+        <p id="error-msg" style="color: red; display: none; margin-top: 10px;">كلمة السر مش صحيحة يا جميل! 😉</p>
+    </div>
+
+    <div id="main-content" style="display: none; text-align: center; padding: 20px;">
+        <div class="message-container">
+            <h2>27/7/2010 اغلى يوم في حياتي ✨🤎</h2>
+            <p>كل سنه وانتي طيبه يا بيبو ✨🤎</p>
+            <p>كل سنه وانتي حياتي الي اخترتها✨🤎</p>
+            <p>ليه ماثرتش فيكي بس أنا ميت فيكي من اليوم الي شوفتك فيه ✨🤎</p>
+            <h3>4/10/2025 ✨🤎</h3>
+            <p>بحب وجودك في حياتي و بحب تفاصيلك وبحبك اوي ✨🤎</p>
+            <p>مش هقول غير ربنا يخليكي ليا و يجمعني بيكي على طول ✨🤎</p>
+            <p>كل سنه وانتي جميله و مجنونه و حنينه و اطيب انسانه قبلتها في حياتي ✨🤎🤚🏻😂</p>
+            <p>كل سنه وانتي طيبه يا بيبو ✨🤎🤚🏻</p>
+            <h2>Happy birthday my lady ✨🤚🏻🤎</h2>
         </div>
     </div>
 
-    <div class="celebration"></div>
-    <script src="script/main.js"></script>
+    <script>
+        function checkPassword() {
+            var pass = document.getElementById("passInput").value;
+            // كلمة السر المحددة
+            if (pass === "Bebo" || pass === "Bebo🐣" || pass === "bebo") {
+                document.getElementById("password-screen").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+                var audio = document.getElementById("bg-music");
+                if (audio) { audio.play(); }
+            } else {
+                document.getElementById("error-msg").style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>
