@@ -16,12 +16,13 @@
         }
 
         body {
-            background: #f7e8ee;
-            color: #5a3e36;
+            background: linear-gradient(135deg, #180a0a, #0a0404);
+            color: #f3e5d8;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             padding: 20px 10px 100px 10px;
             overflow-x: hidden;
             position: relative;
@@ -30,7 +31,7 @@
         /* القلوب الطائرة في الخلفية */
         .heart-particle {
             position: fixed;
-            color: rgba(220, 140, 160, 0.4);
+            color: rgba(212, 163, 115, 0.3);
             font-size: 18px;
             user-select: none;
             pointer-events: none;
@@ -40,20 +41,19 @@
 
         @keyframes floatUp {
             0% { transform: translateY(100vh) scale(0.6) rotate(0deg); opacity: 0; }
-            20% { opacity: 0.8; }
+            20% { opacity: 0.7; }
             100% { transform: translateY(-10vh) scale(1.1) rotate(360deg); opacity: 0; }
         }
 
-        /* شاشة كلمة السر (شكل الظرف الورقي) */
+        /* شاشة كلمة السر (تصميم الظرف الرومانسي الغامق) */
         #password-screen {
             width: 100%;
             max-width: 380px;
-            margin-top: 10vh;
-            background: #fff8f5;
-            border: 2px solid #e8c5c8;
+            background: rgba(35, 18, 18, 0.95);
+            border: 2px solid #8c4a4f;
             border-radius: 20px;
-            padding: 30px 20px;
-            box-shadow: 0 10px 30px rgba(180, 120, 130, 0.2);
+            padding: 35px 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 15px rgba(140, 74, 79, 0.3);
             text-align: center;
             position: relative;
             z-index: 10;
@@ -62,15 +62,15 @@
         .envelope-header {
             font-family: 'Playfair Display', serif;
             font-size: 1.2rem;
-            letter-spacing: 2px;
-            color: #8c5b52;
+            letter-spacing: 3px;
+            color: #d4a373;
             margin-bottom: 5px;
         }
 
         .envelope-title {
             font-size: 1.4rem;
             font-weight: 800;
-            color: #613932;
+            color: #f3e5d8;
             margin-bottom: 25px;
         }
 
@@ -79,43 +79,43 @@
         }
 
         .lock-icon {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 10px;
-            color: #a87268;
+            color: #d4a373;
         }
 
         .pass-label {
             font-size: 0.85rem;
             letter-spacing: 1px;
-            color: #a87268;
+            color: #d4a373;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .pass-input {
             width: 90%;
             padding: 12px 15px;
             border-radius: 25px;
-            border: 1px solid #e0b2b7;
-            background: #fff;
-            color: #5a3e36;
+            border: 1px solid #8c4a4f;
+            background: rgba(15, 5, 5, 0.8);
+            color: #fff;
             text-align: center;
             font-size: 1.1rem;
             outline: none;
-            margin-bottom: 15px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
+            margin-bottom: 20px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
         }
 
         .btn-unlock {
-            background: #d9777f;
+            background: linear-gradient(45deg, #8c4a4f, #d4a373);
             color: white;
             font-weight: 700;
-            padding: 10px 35px;
+            padding: 12px 35px;
             border: none;
             border-radius: 25px;
             font-size: 1rem;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(217, 119, 127, 0.4);
+            box-shadow: 0 4px 15px rgba(140, 74, 79, 0.5);
             transition: all 0.3s ease;
         }
 
@@ -124,48 +124,70 @@
         }
 
         #error-msg {
-            color: #e63946;
-            margin-top: 12px;
+            color: #ff6b6b;
+            margin-top: 15px;
             font-size: 0.9rem;
             display: none;
         }
 
-        /* المحتوى الرئيسي */
+        /* المحتوى الرئيسي (فقرة فقرة) */
         #main-content {
             display: none;
             width: 100%;
             max-width: 420px;
             z-index: 10;
-            animation: fadeIn 1.2s ease-in-out;
         }
 
-        .card-box {
-            background: #fffaf8;
-            border: 1px solid #f0d5d8;
+        .step-card {
+            display: none;
+            background: rgba(30, 15, 15, 0.92);
+            border: 1px solid #73393e;
             border-radius: 20px;
-            padding: 22px 18px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(180, 130, 140, 0.12);
+            padding: 28px 22px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             text-align: center;
+            animation: slideIn 0.8s ease-in-out forwards;
         }
 
-        .card-box p {
-            font-size: 1.05rem;
-            line-height: 1.8;
+        .step-card.active {
+            display: block;
+        }
+
+        .step-card p {
+            font-size: 1.1rem;
+            line-height: 1.9;
             font-weight: 600;
-            color: #5c3b35;
+            color: #f3e5d8;
+        }
+
+        .btn-next {
+            margin-top: 25px;
+            background: linear-gradient(45deg, #8c4a4f, #d4a373);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 10px 28px;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(140, 74, 79, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-next:active {
+            transform: scale(0.95);
         }
 
         /* قسم العداد (بدايتنا) */
         .counter-section h3 {
-            color: #b5525a;
+            color: #d4a373;
             font-size: 1.3rem;
             margin-bottom: 5px;
         }
 
         .start-date {
             font-size: 0.95rem;
-            color: #8c5b52;
+            color: #e0a9af;
             margin-bottom: 15px;
         }
 
@@ -177,8 +199,8 @@
         }
 
         .timer-unit {
-            background: #fceded;
-            border: 1px solid #f2c9cd;
+            background: rgba(15, 5, 5, 0.6);
+            border: 1px solid #73393e;
             border-radius: 12px;
             padding: 8px 12px;
             min-width: 65px;
@@ -187,12 +209,12 @@
         .timer-num {
             font-size: 1.3rem;
             font-weight: 800;
-            color: #b5525a;
+            color: #d4a373;
         }
 
         .timer-label {
             font-size: 0.8rem;
-            color: #8c5b52;
+            color: #e0a9af;
         }
 
         /* مشغل الموسيقى المضيء في الأسفل */
@@ -203,15 +225,15 @@
             transform: translateX(-50%);
             width: 90%;
             max-width: 380px;
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(25, 10, 10, 0.92);
             backdrop-filter: blur(10px);
-            border: 1px solid #f0c2c6;
+            border: 1px solid #73393e;
             border-radius: 30px;
             padding: 10px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
             z-index: 100;
         }
 
@@ -225,7 +247,7 @@
             width: 35px;
             height: 35px;
             border-radius: 50%;
-            background: #d9777f;
+            background: #8c4a4f;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -236,7 +258,7 @@
         .music-text {
             font-size: 0.85rem;
             font-weight: 700;
-            color: #613932;
+            color: #f3e5d8;
         }
 
         .music-btn {
@@ -244,16 +266,16 @@
             border: none;
             font-size: 1.2rem;
             cursor: pointer;
-            color: #d9777f;
+            color: #d4a373;
         }
 
         @keyframes spin {
             100% { transform: rotate(360deg); }
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(25px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
     </style>
 </head>
@@ -278,49 +300,54 @@
 
     <div id="main-content">
 
-        <div class="card-box">
-            <p>😍 كل كلمه بجد و ياريت ملاقيش الرد مممم 😂✨🤎</p>
+        <div class="step-card active" id="step-1">
+            <p>😍 حبيت أعمل هدية جديدة ونملاها كلام وحب، وبس قبل أي حاجة عايزك تعرفي إني بحبك وربنا يخليكي ليا يا قلبي.. ويلا بقى انبسطي! ✨🤎</p>
+            <button class="btn-next" onclick="nextStep(2)">الفقرة التالية ❤️</button>
         </div>
 
-        <div class="card-box counter-section">
-            <h3>💕اغلى يوم في حياتي ✨ 🤎 💕</h3>
-            <div class="start-date"> 27-07-2010 ✨🤎</div>
+        <div class="step-card counter-section" id="step-2">
+            <h3>💕 بدايتنا 💕</h3>
+            <div class="start-date">سوا من 27-07-2010 ✨🤎</div>
             <div class="timer-grid">
                 <div class="timer-unit"><div class="timer-num" id="days">00</div><div class="timer-label">يوم</div></div>
                 <div class="timer-unit"><div class="timer-num" id="hours">00</div><div class="timer-label">ساعة</div></div>
                 <div class="timer-unit"><div class="timer-num" id="minutes">00</div><div class="timer-label">دقيقة</div></div>
                 <div class="timer-unit"><div class="timer-num" id="seconds">00</div><div class="timer-label">ثانية</div></div>
             </div>
-            <p style="font-size:0.9rem; color:#8c5b52;">خليكي عارفه اني هفضل وراكي لاخر نفس ❤️</p>
+            <p style="font-size:0.95rem; color:#e0a9af;">كل ثانية بتعدي وأنتي في قلبي ❤️</p>
+            <button class="btn-next" onclick="nextStep(3)">التالي ✨</button>
         </div>
 
-        <div class="card-box">
-            <p>كل سنه وانتي طيبه يا بطه ✨😂🤎✨🤎</p>
-            <p style="margin-top:10px;">كل سنه وانتي طيبه يا بيبو ✨🤎</p>
-            <p style="margin-top:10px;">كل سنه وانتي حياتي الي اخترتها✨🤎</p>
-            <p style="margin-top:10px;">اه لسه مفيش بينا حاجه بجد بس وحيانك أنا ميت فيكي من اليوم الي شوفتك فيه ✨🤎</p>
+        <div class="step-card" id="step-3">
+            <p>27/7/2010 اغلى يوم في حياتي ✨🤎</p>
+            <p style="margin-top:12px;">كل سنه وانتي طيبه يا بيبو ✨🤎</p>
+            <p style="margin-top:12px;">كل سنه وانتي حياتي الي اخترتها✨🤎</p>
+            <p style="margin-top:12px;">لسه ماثرتش فيكي بس أنا ميت فيكي من اليوم الي شوفتك فيه ✨🤎</p>
+            <button class="btn-next" onclick="nextStep(4)">التالي ✨</button>
         </div>
 
-        <div class="card-box">
-            <h3 style="color:#b5525a; margin-bottom:10px;">✨ 4/10/2025اليوم الي غير حياتي 360درجه  ✨</h3>
-            <p></p>حبيت وجودك في حياتي و حبيت تفاصيلك وبحبك اوي ✨🤎</p>
-            <p style="margin-top:10px;">مش هقول غير ربنا يخليكي ليا و يجمعني بيكي على طول ✨🤎</p>
-            <p style="margin-top:10px;">ربنا يخليكي النصيب الي مستنيه و يجمعني بيكي في كل خير و حب ✨🤎</p>
+        <div class="step-card" id="step-4">
+            <h3 style="color:#d4a373; margin-bottom:12px;">✨ 4/10/2025 ✨</h3>
+            <p>بحب وجودك في حياتي و بحب تفاصيلك وبحبك اوي ✨🤎</p>
+            <p style="margin-top:12px;">مش هقول غير ربنا يخليكي ليا و يجمعني بيكي على طول ✨🤎</p>
+            <p style="margin-top:12px;">ربنا يخليكي النصيب الي مستنيه و يجمعني بيكي في كل خير و حب ✨🤎</p>
+            <button class="btn-next" onclick="nextStep(5)">التالي ✨</button>
         </div>
 
-        <div class="card-box">
+        <div class="step-card" id="step-5">
             <p>ربنا ميحرمنيش منك لا من هزارك ولا جمالك ولا يحرمني من شوفتك اي حاجه منك ربنا ميحرمنيش منها ابدا ✨🤎</p>
             <p style="margin-top:12px;">هفضل كل يوم افتكر و ابقى مبسوط بيوم يوم انا عافرت عشانك فيه ✨🤎</p>
             <p style="margin-top:12px;">انا لسه فاكر وانا مستنيكي من الاسبوع للاسبوع زي العيل الصغير حبيتك شهور وانتي مش معايا و هحبك سنين زيهم بس أن شاء الله وانتي فيهم معايا✨🤎</p>
+            <button class="btn-next" onclick="nextStep(6)">التالي ✨</button>
         </div>
 
-        <div class="card-box">
-            <p style="font-size:1.2rem; font-weight:800; color:#b5525a;">بموت فيكي يا بيبو والله ✨ 🤎</p>
-            <p style="margin-top:10px;">اوعدك اوعدك اني ولا هفكر ازعلك و هبقى زي ما انتي بتتمنيه واكتر وربنا يقدرني و اعمل عشانك اي حاجه ✨🤎</p>
-            <p style="margin-top:10px;">مهما قولت كلام هيخلص الكلام قبل ما تخلص اي حاجه حلوه فيا ليكي  ✨🤎</p>
-            <p style="margin-top:10px;">كل سنه وانتي جميله و مجنونه و حنينه و اطيب انسانه قبلتها في حياتي ✨🤎🤚🏻😂</p>
-            <p style="margin-top:10px;">كل سنه وانتي طيبه يا احلى بيبو ✨🤎🤚🏻</p>
-            <h3 style="margin-top:15px; color:#b5525a; font-family:'Playfair Display', serif;">Happy birthday my lady ✨🤚🏻🤎</h3>
+        <div class="step-card" id="step-6">
+            <p style="font-size:1.2rem; font-weight:800; color:#d4a373;">بموت فيكي يا بيبو والله ✨ 🤎</p>
+            <p style="margin-top:12px;">اوعدك اوعدك اني ولا هفكر ازعلك و هبقى زي ما انتي بتتمنيه واكتر وربنا يقدرني و اعمل عشانك اي حاجه ✨🤎</p>
+            <p style="margin-top:12px;">مهما قولت كلام هيخلص الكلام قبل ما تخلص مشاعري ✨🤎</p>
+            <p style="margin-top:12px;">كل سنه وانتي جميله و مجنونه و حنينه و اطيب انسانه قبلتها في حياتي ✨🤎🤚🏻😂</p>
+            <p style="margin-top:12px;">كل سنه وانتي طيبه يا احلى بيبو ✨🤎🤚🏻</p>
+            <h3 style="margin-top:18px; color:#d4a373; font-family:'Playfair Display', serif;">Happy birthday my lady ✨🤚🏻🤎</h3>
         </div>
 
     </div>
@@ -337,7 +364,7 @@
         // إنشاء القلوب الطائرة
         function createHearts() {
             const container = document.getElementById('hearts-container');
-            const symbols = ['🤎', '✨', '💖', '🌸', '🐣'];
+            const symbols = ['🤎', '✨', '💖', '🐣'];
             for (let i = 0; i < 20; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'heart-particle';
@@ -350,7 +377,7 @@
         }
         createHearts();
 
-        // حساب عداد الوقت المباشر من يوم 27/07/2010
+        // حساب العداد
         const startDate = new Date('2010-07-27T00:00:00');
         function updateCounter() {
             const now = new Date();
@@ -369,7 +396,7 @@
         setInterval(updateCounter, 1000);
         updateCounter();
 
-        // التحقق من كلمة السر
+        // فتح كلمة السر
         function checkPassword() {
             var pass = document.getElementById("passInput").value.trim();
             if (pass === "Bebo" || pass === "Bebo🐣" || pass === "bebo" || pass === "بيبو" || pass === "love") {
@@ -383,6 +410,16 @@
                 }
             } else {
                 document.getElementById("error-msg").style.display = "block";
+            }
+        }
+
+        // التنقل بين الفقرات
+        function nextStep(stepNumber) {
+            const cards = document.querySelectorAll('.step-card');
+            cards.forEach(card => card.classList.remove('active'));
+            const target = document.getElementById('step-' + stepNumber);
+            if (target) {
+                target.classList.add('active');
             }
         }
 
