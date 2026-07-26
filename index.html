@@ -4,51 +4,183 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday My Lady ✨🤎</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2c1b18, #1a0c0a);
+            color: #f3e5d8;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(45, 26, 23, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 163, 115, 0.3);
+            border-radius: 20px;
+            padding: 30px 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+
+        /* شاشة كلمة السر */
+        .pass-card h2 {
+            color: #d4a373;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .pass-input {
+            width: 80%;
+            padding: 12px 15px;
+            border-radius: 25px;
+            border: 1px solid #d4a373;
+            background: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            text-align: center;
+            font-size: 1.1rem;
+            outline: none;
+            margin-bottom: 15px;
+        }
+
+        .btn-submit {
+            background: linear-gradient(45deg, #d4a373, #faedcd);
+            color: #1a0c0a;
+            font-weight: bold;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn-submit:active {
+            transform: scale(0.95);
+        }
+
+        #error-msg {
+            color: #ff6b6b;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        /* المحتوى الرئيسي */
+        #main-content {
+            display: none;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .message-box {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            text-align: center;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .highlight-title {
+            color: #d4a373;
+            font-size: 1.4rem;
+            font-weight: 800;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.2);
+            padding-bottom: 8px;
+            margin-top: 10px;
+        }
+
+        .main-msg {
+            color: #f3e5d8;
+            font-weight: 600;
+        }
+
+        .english-footer {
+            color: #e9edc9;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-top: 15px;
+            direction: ltr;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
-    <audio id="bg-music" loop>
+
+    <!-- ملف الصوت -->
+    <audio id="bg-music" loop preload="auto">
         <source src="assets/music.mp3" type="audio/mpeg">
     </audio>
 
-    <div id="password-screen" style="text-align: center; padding: 50px 20px;">
-        <h2>كلمة السر bebo🐣✨🤎</h2>
-        <input type="password" id="passInput" placeholder="Enter password..." style="padding: 10px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; text-align: center;">
-        <br><br>
-        <button onclick="checkPassword()" style="padding: 10px 20px; font-size: 16px; background-color: #8b5a2b; color: white; border: none; border-radius: 8px; cursor: pointer;">دخول ❤️</button>
-        <p id="error-msg" style="color: red; display: none; margin-top: 10px;">كلمة السر مش صحيحة يا جميل! 😉</p>
-    </div>
+    <div class="container">
+        <!-- شاشة كلمة السر -->
+        <div id="password-screen" class="pass-card">
+            <h2>أدخلي كلمة السر يا بيبو ✨🤎</h2>
+            <input type="password" id="passInput" class="pass-input" placeholder="اكتبي كلمة السر هنا...">
+            <br>
+            <button onclick="checkPassword()" class="btn-submit">دخول ❤️</button>
+            <p id="error-msg">كلمة السر مش صحيحة يا جميل! 😉</p>
+        </div>
 
-    <div id="main-content" style="display: none; text-align: center; padding: 20px;">
-        <div class="message-container">
-            <h2>27/7/2010 اغلى يوم في حياتي ✨🤎</h2>
-            <p>كل سنه وانتي طيبه يا بيبو ✨🤎</p>
-            <p>كل سنه وانتي حياتي الي اخترتها✨🤎</p>
-            <p>لسه ماثرتش فيكي بس أنا ميت فيكي من اليوم الي شوفتك فيه ✨🤎</p>
-            <h3>4/10/2025 ✨🤎</h3>
-            <p>بحب وجودك في حياتي و بحب تفاصيلك وبحبك اوي ✨🤎</p>
-            <p>مش هقول غير ربنا يخليكي ليا و يجمعني بيكي على طول ✨🤎</p>
-            <p>ربنا يخليكي النصيب الي مستنيه و يجمعني بيكي في كل خير و حب ✨🤎</p>
-            <p>ربنا ميحرمنيش منك لا من هزارك ولا جمالك ولا يحرمني من شوفتك اي حاجه منك ربنا ميحرمنيش منها ابدا ✨🤎</p>
-            <p>هفضل كل يوم افتكر و ابقى مبسوط بيوم يوم انا عافرت عشانك فيه ✨🤎</p>
-            <p>انا لسه فاكر وانا مستنيكي من الاسبوع للاسبوع زي العيل الصغير حبيتك شهور وانتي مش معايا و هحبك سنين زيهم بس أن شاء الله وانتي فيهم معايا✨🤎</p>
-            <p>بموت فيكي يا بيبو والله ✨ 🤎</p>
-            <p>اوعدك اوعدك اني ولا هفكر ازعلك و هبقى زي ما انتي بتتمنيه واكتر وربنا يقدرني و اعمل عشانك اي حاجه ✨🤎</p>
-            <p>مهما قولت كلام هيخلص الكلام قبل ما تخلص مشاعري ✨🤎</p>
-            <p>كل سنه وانتي جميله و مجنونه و حنينه و اطيب انسانه قبلتها في حياتي ✨🤎🤚🏻😂</p>
-            <p>كل سنه وانتي طيبه يا احلى بيبو ✨🤎🤚🏻</p>
-            <h2>Happy birthday my lady ✨🤚🏻🤎</h2>
+        <!-- محتوى الرسالة -->
+        <div id="main-content">
+            <div class="message-box">
+                <div class="highlight-title">27/7/2010 اغلى يوم في حياتي ✨🤎</div>
+                <p class="main-msg">كل سنه وانتي طيبه يا بيبو ✨🤎</p>
+                <p class="main-msg">كل سنه وانتي حياتي الي اخترتها✨🤎</p>
+                <p class="main-msg">لسه ماثرتش فيكي بس أنا ميت فيكي من اليوم الي شوفتك فيه ✨🤎</p>
+                
+                <div class="highlight-title">4/10/2025 ✨🤎</div>
+                <p class="main-msg">بحب وجودك في حياتي و بحب تفاصيلك وبحبك اوي ✨🤎</p>
+                <p class="main-msg">مش هقول غير ربنا يخليكي ليا و يجمعني بيكي على طول ✨🤎</p>
+                <p class="main-msg">ربنا يخليكي النصيب الي مستنيه و يجمعني بيكي في كل خير و حب ✨🤎</p>
+                <p class="main-msg">ربنا ميحرمنيش منك لا من هزارك ولا جمالك ولا يحرمني من شوفتك اي حاجه منك ربنا ميحرمنيش منها ابدا ✨🤎</p>
+                <p class="main-msg">هفضل كل يوم افتكر و ابقى مبسوط بيوم يوم انا عافرت عشانك فيه ✨🤎</p>
+                <p class="main-msg">انا لسه فاكر وانا مستنيكي من الاسبوع للاسبوع زي العيل الصغير حبيتك شهور وانتي مش معايا و هحبك سنين زيهم بس أن شاء الله وانتي فيهم معايا✨🤎</p>
+                <p class="main-msg">بموت فيكي يا بيبو والله ✨ 🤎</p>
+                <p class="main-msg">اوعدك اوعدك اني ولا هفكر ازعلك و هبقى زي ما انتي بتتمنيه واكتر وربنا يقدرني و اعمل عشانك اي حاجه ✨🤎</p>
+                <p class="main-msg">مهما قولت كلام هيخلص الكلام قبل ما تخلص مشاعري ✨🤎</p>
+                <p class="main-msg">كل سنه وانتي جميله و مجنونه و حنينه و اطيب انسانه قبلتها في حياتي ✨🤎🤚🏻😂</p>
+                <p class="main-msg">كل سنه وانتي طيبه يا احلى بيبو ✨🤎🤚🏻</p>
+                
+                <div class="english-footer">Happy birthday my lady ✨🤚🏻🤎</div>
+            </div>
         </div>
     </div>
 
     <script>
         function checkPassword() {
-            var pass = document.getElementById("passInput").value;
-            if (pass === "Bebo" || pass === "Bebo🐣" || pass === "bebo") {
+            var pass = document.getElementById("passInput").value.trim();
+            // كلمة السر المقبولة
+            if (pass === "Bebo" || pass === "Bebo🐣" || pass === "bebo" || pass === "بيبو") {
                 document.getElementById("password-screen").style.display = "none";
                 document.getElementById("main-content").style.display = "block";
+                
+                // تشغيل المزيكا
                 var audio = document.getElementById("bg-music");
-                if (audio) { audio.play(); }
+                if (audio) {
+                    audio.play().catch(function(e) {
+                        console.log("Audio play error:", e);
+                    });
+                }
             } else {
                 document.getElementById("error-msg").style.display = "block";
             }
